@@ -38,8 +38,8 @@ public class Main {
                     
                     System.out.println("\nDigite o caminho da imagem do lanche.");
                     String imagem = scanner.next();
-                    imagem = imagem.replace("\"", "");  // Remove as aspas duplas
-                    imagem = imagem.replace("\\", "/");  // Substitui as barras invertidas por barras normais
+                    imagem = imagem.replace("\"", ""); 
+                    imagem = imagem.replace("\\", "/");
                    
                     Path caminhoImagem = copiarArquivos(Paths.get(imagem), Paths.get("Imagens"));
                     
