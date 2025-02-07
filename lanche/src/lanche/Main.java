@@ -38,7 +38,8 @@ public class Main {
                     
                     System.out.println("\nDigite o caminho da imagem do lanche.");
                     String imagem = scanner.next();
-                    imagem = imagem.replace("/", "\\");
+                    imagem = imagem.replace("\"", "");  // Remove as aspas duplas
+                    imagem = imagem.replace("\\", "/");  // Substitui as barras invertidas por barras normais
                    
                     Path caminhoImagem = copiarArquivos(Paths.get(imagem), Paths.get("Imagens"));
                     
@@ -134,7 +135,6 @@ public class Main {
     		Path destino = pastaDestino.resolve(origem.getFileName());
     		Files.copy(origem, destino, StandardCopyOption.REPLACE_EXISTING);
     		return destino;
-    		
     	}catch(IOException e){
     		System.out.println("\nErro ao copiar a imagem: " + e.getMessage());
             return null;
