@@ -7,6 +7,7 @@ import com.example.demo.repositories.LancheRepository;
 import com.example.demo.services.LancheService;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -22,6 +23,7 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		injetarDependencias();
 
+		String destino = "Imagens";
 		int codigo = 0;
 		boolean sair = false;
 
@@ -49,7 +51,7 @@ public class DemoApplication {
 					System.out.println("\nDigite o caminho da imagem do lanche.");
 					String img_url = scanner.next();
 
-					lancheFacade.cadastrar(new Lanche(codigo++, nome, preco, img_url));
+					lancheFacade.cadastrar(new Lanche(codigo++, nome, preco, img_url), destino);
 
 					System.out.println("\nLanche " + nome + ", codigo "+ codigo +" cadastrado com sucesso.");
 					codigo++;
@@ -75,7 +77,7 @@ public class DemoApplication {
 						lancheAtt.setNome(nome2);
 						lancheAtt.setPreco(preco2);
 
-						lancheFacade.atualizar(codigo2, lancheAtt);
+						lancheFacade.atualizar(codigo2, lancheAtt, destino);
 					}
 					else{
 						System.out.println("\nLanche não encontrado.");

@@ -4,6 +4,7 @@ import com.example.demo.entities.Lanche;
 import com.example.demo.repositories.LancheRepository;
 import com.example.demo.services.LancheService;
 
+import java.nio.file.Paths;
 import java.util.List;
 
 public class LancheApplication {
@@ -15,9 +16,9 @@ public class LancheApplication {
         this.lancheRepository = lancheRepository;
     }
 
-    public void cadastrar(Lanche lanche) {
+    public void cadastrar(Lanche lanche, String destino) {
         this.lancheRepository.adicionar(lanche);
-        this.lancheService.salvar(lanche);
+        this.lancheService.salvar( lanche, Paths.get(lanche.getImagem()), Paths.get(destino));
     }
 
     public List<Lanche> buscar() {
@@ -36,8 +37,9 @@ public class LancheApplication {
         lancheRepository.remover(codigo);
     }
 
-    public void atualizar(int codigo, Lanche lanche) {
+    public void atualizar(int codigo, Lanche lanche, String destino) {
         lancheRepository.atualizar(codigo, lanche);
+        lancheService.atualizar(codigo, lanche, destino);
     }
 
 }

@@ -9,7 +9,6 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 public class LancheService {
-    private String filePath = "C:\\Users\\aluno.fsa\\ImagensLancheDestino\\";
 
     public Lanche getById(int id) {
         return null;
@@ -19,7 +18,7 @@ public class LancheService {
         return true;
     }
 
-    private String getFileExtension(Path path) {
+    private static String getFileExtension(Path path) {
         String filename = path.getFileName().toString();
         int lastDotIndex = filename.lastIndexOf('.');
 
@@ -30,29 +29,40 @@ public class LancheService {
         return filename.substring(lastDotIndex + 1);
     }
 
-    public boolean salvar(Lanche lanche) {
-        Path path = Paths.get(lanche.getImagem());
+    public static boolean salvar(Lanche lanche, Path origem, Path pastaDestino) {
+        try {
+            if (!Files.exists(pastaDestino)) {
+                Files.createDirectories(pastaDestino);
+            }
 
-        Path destinationPath = Paths.get(String.format("%s%d.%s", filePath, lanche.getCodigo(), getFileExtension(path)));
 
-        if (Files.exists(path)) {
-            try {
-                Files.copy(path, destinationPath, StandardCopyOption.REPLACE_EXISTING);
-                lanche.setImagem(destinationPath.toString());
-                return true;
-            } catch (IOException e) {
+            String extensao = getFileExtension(origem);
+
+            if (extensao.isEmpty()) {
                 return false;
             }
+
+            String novoNomeArquivo = lanche.getCodigo() + "." + extensao;
+
+            Path destino = pastaDestino.resolve(novoNomeArquivo);
+
+            Files.copy(origem, destino, StandardCopyOption.REPLACE_EXISTING);
+            return true;
+        } catch (IOException e) {
+            return false;
         }
-
-        return false;
     }
 
-    public void excluir(int id, Lanche Lanche) {
-
+    public static boolean excluirArquivo(Path arquivo) {
+        try {
+            return Files.deleteIfExists(arquivo);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
-    public void atualizar(int id, Lanche Lanche) {
-
+    public void atualizar(int id, Lanche lanche, String destino) {
+        this.salvar(lanche, Paths.get(lanche.getImagem()), Paths.get(destino));
     }
 }

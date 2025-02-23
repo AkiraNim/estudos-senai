@@ -14,8 +14,8 @@ public class LancheFacade {
         this.lancheApplication = lancheApplication;
     }
 
-    public void cadastrar(Lanche lanche) {
-        this.lancheApplication.cadastrar(lanche);
+    public void cadastrar(Lanche lanche, String destino) {
+        this.lancheApplication.cadastrar(lanche, destino);
     }
 
     public List<Lanche> buscar() {
@@ -33,7 +33,8 @@ public class LancheFacade {
     public void remover(int codigo) {
         lancheApplication.remover(codigo);
     }
-    public void atualizar(int codigo, Lanche lanche) {
-        lancheApplication.atualizar(codigo, lanche);
+    public void atualizar(int codigo, Lanche lanche, String destino) {
+        lancheApplication.atualizar(codigo, lanche, destino);
+
     }
 }
