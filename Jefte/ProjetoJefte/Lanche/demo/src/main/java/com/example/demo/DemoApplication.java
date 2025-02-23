@@ -23,7 +23,7 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		injetarDependencias();
 
-		String destino = "Imagens";
+		String destino = "src\\main\\java\\com\\example\\demo\\Imagens";
 		int codigo = 0;
 		boolean sair = false;
 
