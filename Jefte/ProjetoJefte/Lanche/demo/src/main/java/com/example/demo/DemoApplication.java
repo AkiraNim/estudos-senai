@@ -33,9 +33,10 @@ public class DemoApplication {
 			System.out.println("Bem vindo ao sistema de lanches PICA - Polo Industrial Cães Asmáticos"
 					+ "\n[1] - Cadastrar um lanche."
 					+ "\n[2] - Atualizar um lanche."
-					+ "\n[3] - Listar lamches."
-					+ "\n[4] - Vender um lanche."
-					+ "\n[5] - Sair.");
+					+ "\n[3] - Remover um lamche."
+					+ "\n[4] - Listar lamches."
+					+ "\n[5] - Vender um lanche."
+					+ "\n[6] - Sair.");
 
 			int escolha = obterEntradaInteira(scanner);
 
@@ -51,10 +52,9 @@ public class DemoApplication {
 					System.out.println("\nDigite o caminho da imagem do lanche.");
 					String img_url = scanner.next();
 
+					System.out.println("\nLanche " + nome + ", codigo "+ codigo +" cadastrado com sucesso.");
 					lancheFacade.cadastrar(new Lanche(codigo++, nome, preco, img_url), destino);
 
-					System.out.println("\nLanche " + nome + ", codigo "+ codigo +" cadastrado com sucesso.");
-					codigo++;
 					break;
 				case 2:
 					System.out.println("\nVocê escolheu atualizar um lanche.");
@@ -83,25 +83,46 @@ public class DemoApplication {
 						System.out.println("\nLanche não encontrado.");
 					}
 					break;
+
 				case 3:
+					System.out.println("\nVocê escolheu remover um lanche.");
+					System.out.println("\nDigite o codigo do lanche.");
+					int codigo3 = obterEntradaInteira(scanner);
+
+					Lanche lanche = lancheFacade.buscarPorCodigo(codigo3);
+
+					if(lanche!=null){
+						lancheFacade.remover(codigo, lanche, destino);
+						System.out.println("\nLanche removido.");
+					}
+					else {
+						System.out.println("\nLanche nao encontrado.");
+					}
+
+					break;
+
+				case 4:
 					System.out.println("--------------------------------------\n CÓDIGO\tNOME\t\tPRECO\n--------------------------------------");
 					List<Lanche> lanches = lancheFacade.buscar();
 					for (Lanche l : lanches) {
 						System.out.println(l.getCodigo() + "\t\t" + l.getNome() + "\t\t" + l.getPreco() + "\n");
 					}
 					break;
-				case 4:
+				case 5:
 					System.out.println("Digite o código do lanche:");
 					int cod = obterEntradaInteira(scanner);
 					System.out.println("Digite a quantidade:");
 					int qtd = obterEntradaInteira(scanner);
-					Lanche lanche = lancheFacade.buscarPorCodigo(cod);
+					Lanche lanche2 = lancheFacade.buscarPorCodigo(cod);
 
-					String total = String.format("%.2f", lancheFacade.calcularLanche(lanche, qtd));
+					String total = String.format("%.2f", lancheFacade.calcularLanche(lanche2, qtd));
 					System.out.println("Total: R$ " + total);
 					break;
-				case 5:
+				case 6:
 					sair = true;
+					break;
+				default:
+					System.out.println("\nOpcao invalida");
 					break;
 			}
 

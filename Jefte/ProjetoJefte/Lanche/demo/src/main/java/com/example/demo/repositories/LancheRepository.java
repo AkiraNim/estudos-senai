@@ -8,10 +8,11 @@ import java.util.List;
 public class LancheRepository {
     private List<Lanche> lanches = new ArrayList<>();
 
-    public Lanche buscarPorCodigo(int codigo){
-        Lanche lanche = lanches.stream().filter(p -> p.getCodigo() == codigo).findFirst().get();
-
-        return lanche;
+    public Lanche buscarPorCodigo(int codigo) {
+        return lanches.stream()
+                .filter(p -> p.getCodigo() == codigo)
+                .findFirst()
+                .orElse(null);
     }
     public List<Lanche> buscar(){
         return lanches;

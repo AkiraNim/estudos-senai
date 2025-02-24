@@ -53,9 +53,19 @@ public class LancheService {
         }
     }
 
-    public static boolean excluirArquivo(Path arquivo) {
+    public static boolean excluirArquivo(String destino, String nomeArquivo) {
+        // Criando o caminho completo para o arquivo
+        Path caminhoArquivo = Path.of(destino, nomeArquivo);
+
+        // Verificando se o arquivo existe
+        if (!Files.exists(caminhoArquivo)) {
+            System.out.println("Erro: O arquivo não existe em " + caminhoArquivo);
+            return false;
+        }
+
         try {
-            return Files.deleteIfExists(arquivo);
+            // Tentando excluir o arquivo
+            return Files.deleteIfExists(caminhoArquivo);
         } catch (IOException e) {
             e.printStackTrace();
             return false;

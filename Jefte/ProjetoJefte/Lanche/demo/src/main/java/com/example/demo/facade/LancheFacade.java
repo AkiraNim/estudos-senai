@@ -30,8 +30,8 @@ public class LancheFacade {
         return this.lancheApplication.calcularLanche(lanche, quantidade);
     }
 
-    public void remover(int codigo) {
-        lancheApplication.remover(codigo);
+    public void remover(int codigo, Lanche lanche, String destino) {
+        lancheApplication.remover(codigo, lanche, destino);
     }
     public void atualizar(int codigo, Lanche lanche, String destino) {
         lancheApplication.atualizar(codigo, lanche, destino);

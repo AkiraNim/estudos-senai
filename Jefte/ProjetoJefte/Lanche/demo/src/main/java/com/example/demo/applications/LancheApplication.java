@@ -33,8 +33,10 @@ public class LancheApplication {
         return lanche.getPreco() * quantidade;
     }
 
-    public void remover(int codigo){
+    public void remover(int codigo, Lanche lanche, String destino) {
         lancheRepository.remover(codigo);
+        lancheService.excluirArquivo(destino, String.valueOf(lanche.getCodigo()));
+
     }
 
     public void atualizar(int codigo, Lanche lanche, String destino) {
