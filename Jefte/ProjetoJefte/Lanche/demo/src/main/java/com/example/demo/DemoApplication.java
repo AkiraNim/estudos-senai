@@ -92,7 +92,7 @@ public class DemoApplication {
 					Lanche lanche = lancheFacade.buscarPorCodigo(codigo3);
 
 					if(lanche!=null){
-						lancheFacade.remover(codigo, lanche, destino);
+						lancheFacade.remover(codigo3, lanche, destino);
 						System.out.println("\nLanche removido.");
 					}
 					else {
