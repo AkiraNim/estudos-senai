@@ -1,10 +1,10 @@
-package com.gilDaEsfiha.lanches.controller;
+package com.gilDaEsfiha.lanches.models.controller;
 
 
 
-import com.gilDaEsfiha.lanches.domain.Lanche;
-import com.gilDaEsfiha.lanches.repositories.LancheRepository;
-import com.gilDaEsfiha.lanches.service.LancheService;
+import com.gilDaEsfiha.lanches.models.domain.Lanche;
+import com.gilDaEsfiha.lanches.models.repositories.LancheRepository;
+import com.gilDaEsfiha.lanches.models.service.LancheService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

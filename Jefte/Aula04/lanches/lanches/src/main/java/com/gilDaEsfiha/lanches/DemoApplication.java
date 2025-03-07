@@ -1,14 +1,13 @@
-package com.example.demo;
+package com.gilDaEsfiha.lanches;
 
-import com.example.demo.applications.LancheApplication;
-import com.example.demo.entities.Lanche;
-import com.example.demo.facade.LancheFacade;
-import com.example.demo.repositories.LancheRepository;
-import com.example.demo.services.LancheService;
+
+import com.gilDaEsfiha.lanches.models.controller.LancheApplication;
+import com.gilDaEsfiha.lanches.models.domain.Lanche;
+import com.gilDaEsfiha.lanches.models.facade.LancheFacade;
+import com.gilDaEsfiha.lanches.models.repositories.LancheRepository;
+import com.gilDaEsfiha.lanches.models.service.LancheService;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -114,11 +113,9 @@ public class DemoApplication {
 					System.out.println("Digite a quantidade:");
 					int qtd = obterEntradaInteira(scanner);
 					Lanche lanche2 = lancheFacade.buscarPorCodigo(cod);
-					if(lanche2!=null){
-						String total = String.format("%.2f", lancheFacade.calcularLanche(lanche2, qtd));
-						System.out.println("Total: R$ " + total);
-					}
 
+					String total = String.format("%.2f", lancheFacade.calcularLanche(lanche2, qtd));
+					System.out.println("Total: R$ " + total);
 					break;
 				case 6:
 					sair = true;

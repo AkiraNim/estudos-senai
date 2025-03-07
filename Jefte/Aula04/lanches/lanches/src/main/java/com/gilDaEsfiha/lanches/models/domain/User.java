@@ -1,4 +1,4 @@
-package com.gilDaEsfiha.lanches.domain;
+package com.gilDaEsfiha.lanches.models.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

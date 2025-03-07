@@ -1,9 +1,9 @@
-package com.gilDaEsfiha.lanches.facade;
+package com.gilDaEsfiha.lanches.models.facade;
 
 
 
-import com.gilDaEsfiha.lanches.controller.LancheApplication;
-import com.gilDaEsfiha.lanches.domain.Lanche;
+import com.gilDaEsfiha.lanches.models.controller.LancheApplication;
+import com.gilDaEsfiha.lanches.models.domain.Lanche;
 
 import java.util.List;
 

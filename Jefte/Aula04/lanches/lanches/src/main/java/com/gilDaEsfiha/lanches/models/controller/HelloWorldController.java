@@ -1,7 +1,7 @@
-package com.gilDaEsfiha.lanches.controller;
+package com.gilDaEsfiha.lanches.models.controller;
 
-import com.gilDaEsfiha.lanches.domain.User;
-import com.gilDaEsfiha.lanches.service.HelloWorldService;
+import com.gilDaEsfiha.lanches.models.domain.User;
+import com.gilDaEsfiha.lanches.models.service.HelloWorldService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

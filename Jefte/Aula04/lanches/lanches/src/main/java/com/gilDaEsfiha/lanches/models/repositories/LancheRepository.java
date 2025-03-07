@@ -1,7 +1,7 @@
-package com.gilDaEsfiha.lanches.repositories;
+package com.gilDaEsfiha.lanches.models.repositories;
 
 
-import com.gilDaEsfiha.lanches.domain.Lanche;
+import com.gilDaEsfiha.lanches.models.domain.Lanche;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

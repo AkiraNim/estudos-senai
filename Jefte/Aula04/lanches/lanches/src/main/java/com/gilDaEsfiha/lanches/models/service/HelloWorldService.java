@@ -1,4 +1,4 @@
-package com.gilDaEsfiha.lanches.service;
+package com.gilDaEsfiha.lanches.models.service;
 
 import org.springframework.stereotype.Service;
 

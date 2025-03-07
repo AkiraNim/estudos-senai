@@ -1,6 +1,5 @@
-package com.gilDaEsfiha.lanches.configuration;
+package com.gilDaEsfiha.lanches.models.configuration;
 
-import com.gilDaEsfiha.lanches.service.HelloWorldService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

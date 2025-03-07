@@ -1,4 +1,4 @@
-package com.gilDaEsfiha.lanches.domain;
+package com.gilDaEsfiha.lanches.models.domain;
 
 public class Lanche {
 

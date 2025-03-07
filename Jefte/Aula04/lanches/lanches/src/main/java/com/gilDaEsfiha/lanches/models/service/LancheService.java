@@ -1,7 +1,7 @@
-package com.gilDaEsfiha.lanches.service;
+package com.gilDaEsfiha.lanches.models.service;
 
 
-import com.gilDaEsfiha.lanches.domain.Lanche;
+import com.gilDaEsfiha.lanches.models.domain.Lanche;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
