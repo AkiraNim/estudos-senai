@@ -3,19 +3,17 @@ package com.example.demo;
 import com.example.demo.applications.LancheApplication;
 import com.example.demo.entities.Lanche;
 import com.example.demo.facade.LancheFacade;
-import com.example.demo.repositories.LancheRepository;
+import com.example.demo.repositories.LancheRepositoryImpl;
 import com.example.demo.services.LancheService;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 @SpringBootApplication
 public class DemoApplication {
-	private static LancheRepository lancheRepository;
+	private static LancheRepositoryImpl lancheRepositoryImpl;
 	private static LancheService lancheService;
 	private static LancheApplication lancheApplication;
 	private static LancheFacade lancheFacade;
@@ -132,9 +130,9 @@ public class DemoApplication {
 	}
 
 	private static void injetarDependencias() {
-		lancheRepository = new LancheRepository();
+		lancheRepositoryImpl = new LancheRepositoryImpl();
 		lancheService = new LancheService();
-		lancheApplication = new LancheApplication(lancheService, lancheRepository);
+		lancheApplication = new LancheApplication(lancheService, lancheRepositoryImpl);
 		lancheFacade = new LancheFacade(lancheApplication);
 	}
 

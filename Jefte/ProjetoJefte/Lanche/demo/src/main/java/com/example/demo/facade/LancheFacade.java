@@ -2,14 +2,16 @@ package com.example.demo.facade;
 
 import com.example.demo.applications.LancheApplication;
 import com.example.demo.entities.Lanche;
-import com.example.demo.repositories.LancheRepository;
-import com.example.demo.services.LancheService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class LancheFacade {
     private LancheApplication lancheApplication;
 
+    @Autowired
     public LancheFacade(LancheApplication lancheApplication) {
         this.lancheApplication = lancheApplication;
     }

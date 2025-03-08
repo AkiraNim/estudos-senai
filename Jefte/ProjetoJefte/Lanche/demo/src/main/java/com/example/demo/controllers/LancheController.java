@@ -1,11 +1,9 @@
 package com.example.demo.controllers;
 
-import com.example.demo.applications.LancheApplication;
 import com.example.demo.entities.Lanche;
 
 import com.example.demo.facade.LancheFacade;
-import com.example.demo.repositories.LancheRepository;
-import com.example.demo.services.LancheService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,22 +11,12 @@ import java.util.List;
 @RequestMapping("/api/")
 @RestController
 public class LancheController {
+    private final LancheFacade lancheFacade;
     String destino = "src\\main\\java\\com\\example\\demo\\Imagens";
 
-    private static LancheRepository lancheRepository;
-    private static LancheService lancheService;
-    private static LancheApplication lancheApplication;
-    private static LancheFacade lancheFacade;
-
-    private static void injetarDependencias() {
-        lancheRepository = new LancheRepository();
-        lancheService = new LancheService();
-        lancheApplication = new LancheApplication(lancheService, lancheRepository);
-        lancheFacade = new LancheFacade(lancheApplication);
-    }
-
-    public LancheController() {
-        injetarDependencias();
+    @Autowired
+    public LancheController(LancheFacade lancheFacade) {
+        this.lancheFacade = lancheFacade;
 
         Lanche lanche1 = new Lanche(1, "jorge", 1.57, "raiz");
         Lanche lanche2 = new Lanche(2, "jilson", 1.77, "raize");
@@ -51,5 +39,17 @@ public class LancheController {
     @PostMapping("")
     public void cadastrar(@RequestBody Lanche lanche){
         lancheFacade.cadastrar(lanche, destino);
+    }
+    @PutMapping("/{codigo}")
+    public void atualizar(@PathVariable int codigo, @RequestBody Lanche lanche){
+        lancheFacade.atualizar(codigo, lanche, destino);
+    }
+    @DeleteMapping("/{codigo}")
+    public void deletar(@PathVariable int codigo, @RequestBody Lanche lanche){
+        lancheFacade.remover(codigo, lanche, destino);
+    }
+    @GetMapping("/comprar/{codigo}/{quantidade}")
+    public double comprar(@PathVariable int codigo, @PathVariable int quantidade){
+        return lancheFacade.calcularLanche(lancheFacade.buscarPorCodigo(codigo), quantidade);
     }
 }

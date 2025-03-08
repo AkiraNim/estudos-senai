@@ -1,11 +1,14 @@
 package com.example.demo.repositories;
 
 import com.example.demo.entities.Lanche;
+import com.example.demo.interfaces.LancheRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LancheRepository {
+@Repository
+public class LancheRepositoryImpl implements LancheRepository {
     private List<Lanche> lanches = new ArrayList<>();
 
     public Lanche buscarPorCodigo(int codigo) {
@@ -28,5 +31,8 @@ public class LancheRepository {
         lancheInMemory.setNome(lanche.getNome());
         lancheInMemory.setPreco(lanche.getPreco());
         lancheInMemory.setImagem(lanche.getImagem());
+    }
+    public boolean vazio(){
+        return lanches.isEmpty();
     }
 }
