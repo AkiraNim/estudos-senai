@@ -1,15 +1,15 @@
-body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+@import url('https://fonts.cdnfonts.com/css/barbie');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+header h1{
+    font-family: barbie;
 }
 
 header{
-    background-color: #7cb9e8;
+    background-color: #f57bda;
     color: #fff;
     padding: 20px;
     text-align: center;
+    
 }
 
 nav ul {
@@ -27,8 +27,8 @@ nav ul li a{
     text-decoration: none;
 }
 
-main{
-    padding: 20px;
+ul a{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 footer{
@@ -37,6 +37,6 @@ footer{
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: #7cb9e8;
+    background-color: #f57bda;
     color: #fff;
 }
