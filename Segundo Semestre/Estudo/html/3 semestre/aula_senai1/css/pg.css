@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Oi&display=swap');
+
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: "Oi", serif;
+    font-size: 15px;
+
+}
+#menu{
+    background-color: #666;
+}
+.nav{
+    margin: 20px;
+}
+
+.nav ul{
+    list-style: none;
+}
+
+.nav ul li{
+    display: inline;
+    padding: 60px;
+}
+
+.nav ul li a{
+    text-decoration: none;
+    color:burlywood;
+    
+}
+.nav ul li a:hover{
+    border-bottom: solid 3px #29417c;
+}
+.grid0{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    align-items: center;
+    justify-items: center;
+}
+

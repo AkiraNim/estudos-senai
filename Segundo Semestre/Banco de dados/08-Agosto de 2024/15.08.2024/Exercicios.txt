@@ -1,0 +1,36 @@
+Exercício 2
+
+1-Berçario, bebe, medico, mãe
+2-Berçario - bebe. 
+Bebe- medico, mãe.
+Mae - bebe.
+Medico - bebe.
+
+Exercício 3
+
+1-Clientes, pedidos, produtos.
+2-Clientes- pedidos.
+Pedidos- produtos.
+
+Exercício 4
+1-Escola, turmas, professores, aulas, sala.
+2-Escola - aulas.
+Aulas- professores, turma.
+Turma- sala, professores.
+Professores - turmas.
+
+Exercício 5
+
+1-Biblioteca, livros, autores, categoria.
+2-Biblioteca- livros.
+Livros- autores, categoria.
+Autores- livros.
+Categoria- livros.
+
+Exercício 6
+1-Firma, Produtos, Pedidos, Categorias, Cleintes.
+2-Produtos- categoria, pedidos.
+Pedidos- cliente.
+
+
+

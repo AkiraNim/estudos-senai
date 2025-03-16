@@ -1,0 +1,6 @@
+Questão 1
+
+O erro está na linha 4 - faltando o @Override.
+O erro está na linha 9 - faltando o @Override.
+Na linha 14- deveria conter o método reseta(int origem);
+

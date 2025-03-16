@@ -1,0 +1,137 @@
+1. Defina bit, byte e nibble.
+
+bit é a menor unidade de digito e so armazena codigos binarios
+byte é composto de 8 bits
+nibble é metade do byte, ou seja 4 bits.
+
+2. O que é MSB e LSB?
+
+MSB most significant bit, é a posição de bit em um numero binario com o maior valor.
+LSB least significant bit, é o meio de esconder a informação dos bits menos significativos, como o zero a esquerda.
+
+
+3. Converter para binário:
+a) 30 =
+
+30/2=0
+15/2=1
+7/2=1
+3/2=1
+1/2=1
+
+01111
+
+b)
+59  =
+59/2=1
+29/2=1
+14/2=0
+7/2=1
+3/2=1
+1/2=1
+
+111011
+
+c)
+10 =
+10/2=0
+5/2=1
+2/2=0
+1/2=1
+
+1010
+
+d)
+32 =
+32/2=0
+16/2=0
+8/2=0
+4/2=0
+2/2=0
+1/2=1
+
+10000
+
+e)
+256 =
+256/2=0
+128/2=0
+64/2=0
+32/2=0
+16/2=0
+8/2=0
+4/2=0
+2/2=0
+1/2=1
+
+100000000
+
+f)
+127 =
+127/2=1
+63/2=1
+31/2=1
+15/2=1
+7/2=1
+3/2=1
+1/2=1
+
+1111111
+
+g)
+340 =
+340/2=0
+170/2=0
+85/2=1
+42/2=0
+21/2=1
+10/2=0
+5/2=1
+2/2=0
+1/2=1
+
+101010100
+
+h)
+514 =
+514/2=0
+257/2=1
+128/2=0
+64/2=0
+32/2=0
+16/2=0
+8/2=0
+4/2=0
+2/2=0
+1/2=1
+
+1000000010
+
+4.
+Converter para
+hexadecimal:
+
+a)
+38 =
+
+
+b)
+59 =
+
+c)
+2229 =
+
+d)
+4096 =
+
+e)
+512 =
+
+f)
+1027 =
+
+g)
+200 =
+
+h)
+310 =

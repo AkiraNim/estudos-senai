@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="aula.operadores.logicos/src/main/java"/>
+	<classpathentry kind="src" path="aulaEstruturasCondicionais/src/main/java"/>
+	<classpathentry kind="src" path="comparacaoString/src/main/java"/>
+	<classpathentry kind="src" path="estruturasDeRepeticao/src/main/java"/>
+	<classpathentry kind="src" path="javafxml test/aulaDeMatematica/src/main/java"/>
+	<classpathentry kind="src" path="javafxml test/OlaMundoFX/src"/>
+	<classpathentry kind="src" path="javafxml test/SomaSwing/src/main/java"/>
+	<classpathentry kind="src" path="mathAula"/>
+	<classpathentry kind="src" path="mavenproject1/src/main/java"/>
+	<classpathentry kind="src" path="OlaMundoSwing/src/main/java"/>
+	<classpathentry kind="src" path="PrimeiroProjeto/src/main/java"/>
+	<classpathentry kind="src" path="switchCase/src/main/java"/>
+	<classpathentry kind="src" path="Teste/src"/>
+	<classpathentry kind="src" path="TesteSwiingEclipse/src"/>
+	<classpathentry kind="src" path="VotacaoSwing/src/main/java"/>
+	<classpathentry kind="lib" path="javafxml test/OlaMundoFX/dist/OlaMundoFX.jar"/>
+	<classpathentry kind="lib" path="OlaMundoSwing/target/OlaMundoSwing-1.0-SNAPSHOT.jar"/>
+	<classpathentry kind="output" path="OlaMundoSwing/target/classes"/>
+</classpath>
