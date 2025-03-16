@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Cadastro"
+    android:id="@+id/main">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/exit"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/back"
+            android:onClick="backToMenu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="825dp"
+            android:layout_marginEnd="330dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="800dp"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/dark_cyan"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="Cadastro de paciente"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="500dp"
+            android:textColor="@color/dark_cyan"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="Dados do paciente"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+            android:id="@+id/namePacient"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:maxLines="1"
+            android:ems="10"
+            android:hint="Nome do paciente"
+            android:layout_marginBottom="400dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+            android:id="@+id/cpfPacient"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:padding="7dp"
+            android:hint="CPF do paciente"
+            android:layout_marginBottom="300dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/bdayPacient"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:padding="7dp"
+            android:inputType="date"
+            android:hint="Data de nascimento"
+            android:layout_marginBottom="200dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_cyan"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="Dados do responsável"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+            android:id="@+id/nameRelative"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:padding="7dp"
+            android:maxLines="1"
+            android:ems="10"
+            android:hint="Nome do responsável"
+            android:layout_marginTop="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/cpfRelative"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:padding="7dp"
+            android:hint="CPF do responsável"
+            android:layout_marginTop="200dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+            android:id="@+id/phoneRelative"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:padding="7dp"
+            android:hint="Telefone para contato"
+            android:layout_marginTop="300dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/emailRelative"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ems="10"
+            android:hint="E-mail para contato"
+            android:layout_marginTop="400dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/registerBttn"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="800dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/botao"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:text="Cadastrar"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:onClick="registerPacient"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
