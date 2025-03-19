@@ -1,10 +1,25 @@
 package com.example.demo.entities;
 
-public class Lanche {
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "lanches")
+public class Lanche {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "codigo")
     private int codigo;
+
+    @Column(name = "nome")
     private String nome;
+
+    @Column(name = "preco")
     private double preco;
+
+    @Column(name = "imagem")
     private String imagem;
 
     public Lanche(int codigo, String nome, double preco, String imagem) {
