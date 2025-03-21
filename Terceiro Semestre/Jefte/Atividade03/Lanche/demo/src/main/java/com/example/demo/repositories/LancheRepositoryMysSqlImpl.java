@@ -8,7 +8,7 @@ import java.util.List;
 public class LancheRepositoryMysSqlImpl implements LancheRepository {
 
     @Override
-    public Lanche buscarPorCodigo(int codigo) {
+    public Lanche buscarPorCodigo(int lanche_id) {
         return null;
     }
 
@@ -23,12 +23,12 @@ public class LancheRepositoryMysSqlImpl implements LancheRepository {
     }
 
     @Override
-    public void remover(int codigo) {
+    public void remover(int lanche_id) {
 
     }
 
     @Override
-    public void atualizar(int codigo, Lanche lanche) {
+    public void atualizar(int lanche_id, Lanche lanche) {
 
     }
 

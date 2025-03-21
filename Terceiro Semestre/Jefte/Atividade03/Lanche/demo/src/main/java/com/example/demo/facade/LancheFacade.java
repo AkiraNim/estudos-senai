@@ -24,19 +24,19 @@ public class LancheFacade {
         return this.lancheApplication.buscar();
     }
 
-    public Lanche buscarPorCodigo(int codigo) {
-        return this.lancheApplication.buscarPorCodigo(codigo);
+    public Lanche buscarPorCodigo(int lanche_id) {
+        return this.lancheApplication.buscarPorCodigo(lanche_id);
     }
 
     public double calcularLanche(Lanche lanche, int quantidade) {
         return this.lancheApplication.calcularLanche(lanche, quantidade);
     }
 
-    public void remover(int codigo, Lanche lanche, String destino) {
-        lancheApplication.remover(codigo, lanche, destino);
+    public void remover(int lanche_id, Lanche lanche, String destino) {
+        lancheApplication.remover(lanche_id, lanche, destino);
     }
-    public void atualizar(int codigo, Lanche lanche, String destino) {
-        lancheApplication.atualizar(codigo, lanche, destino);
+    public void atualizar(int lanche_id, Lanche lanche, String destino) {
+        lancheApplication.atualizar(lanche_id, lanche, destino);
 
     }
 }

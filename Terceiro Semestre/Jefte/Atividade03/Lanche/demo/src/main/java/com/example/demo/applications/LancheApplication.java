@@ -23,14 +23,15 @@ public class LancheApplication {
     public void cadastrar(Lanche lanche, String destino) {
         this.lancheRepositoryImpl.adicionar(lanche);
         this.lancheService.salvar( lanche, Paths.get(lanche.getImagem()), Paths.get(destino));
+
     }
 
     public List<Lanche> buscar() {
         return this.lancheRepositoryImpl.buscar();
     }
 
-    public Lanche buscarPorCodigo(int codigo) {
-        return this.lancheRepositoryImpl.buscarPorCodigo(codigo);
+    public Lanche buscarPorCodigo(int lanche_id) {
+        return this.lancheRepositoryImpl.buscarPorCodigo(lanche_id);
     }
 
     public double calcularLanche(Lanche lanche, int quantidade) {
@@ -43,9 +44,9 @@ public class LancheApplication {
 
     }
 
-    public void atualizar(int codigo, Lanche lanche, String destino) {
-        lancheRepositoryImpl.atualizar(codigo, lanche);
-        lancheService.atualizar(codigo, lanche, destino);
+    public void atualizar(int lanche_id, Lanche lanche, String destino) {
+        lancheRepositoryImpl.atualizar(lanche_id, lanche);
+        lancheService.atualizar(lanche_id, lanche, destino);
     }
 
 }

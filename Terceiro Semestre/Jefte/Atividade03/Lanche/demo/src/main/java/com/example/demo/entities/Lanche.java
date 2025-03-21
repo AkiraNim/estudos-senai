@@ -8,10 +8,7 @@ public class Lanche {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "codigo")
-    private int codigo;
+    private int lanche_id;
 
     @Column(name = "nome")
     private String nome;
@@ -22,19 +19,19 @@ public class Lanche {
     @Column(name = "imagem")
     private String imagem;
 
-    public Lanche(int codigo, String nome, double preco, String imagem) {
-        this.codigo = codigo;
+    public Lanche(int lanche_id, String nome, double preco, String imagem) {
+        this.lanche_id = lanche_id;
         this.nome = nome;
         this.preco = preco;
         this.imagem = imagem;
     }
 
     public int getCodigo() {
-        return codigo;
+        return lanche_id;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setCodigo(int lanche_id) {
+        this.lanche_id = lanche_id;
     }
 
     public String getNome() {
@@ -64,7 +61,7 @@ public class Lanche {
     @Override
     public String toString() {
         return "Lanche{" +
-                "codigo=" + codigo +
+                "id=" + lanche_id +
                 ", nome='" + nome + '\'' +
                 ", preco=" + preco +
                 ", imagem='" + imagem + '\'' +
