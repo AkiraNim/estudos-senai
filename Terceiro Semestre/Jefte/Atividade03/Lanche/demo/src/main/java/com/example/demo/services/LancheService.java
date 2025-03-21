@@ -74,7 +74,7 @@ public class LancheService {
         }
     }
 
-    public void atualizar(int id, Lanche lanche, String destino) {
+    public void atualizar(Lanche lanche, String destino) {
         this.salvar(lanche, Paths.get(lanche.getImagem()), Paths.get(destino));
     }
 }

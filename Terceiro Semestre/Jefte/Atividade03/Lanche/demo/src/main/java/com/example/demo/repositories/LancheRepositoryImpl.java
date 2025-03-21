@@ -7,13 +7,13 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+
 public class LancheRepositoryImpl implements LancheRepository {
     private List<Lanche> lanches = new ArrayList<>();
 
-    public Lanche buscarPorCodigo(int lanche_id) {
+    public Lanche buscarPorCodigo(int lancheId) {
         return lanches.stream()
-                .filter(p -> p.getCodigo() == lanche_id)
+                .filter(p -> p.getCodigo() == lancheId)
                 .findFirst()
                 .orElse(null);
     }
@@ -23,11 +23,11 @@ public class LancheRepositoryImpl implements LancheRepository {
     public void adicionar(Lanche lanche){
         lanches.add(lanche);
     }
-    public void remover(int lanche_id){
-        lanches.removeIf(p -> p.getCodigo() == lanche_id);
+    public void remover(int lancheId){
+        lanches.removeIf(p -> p.getCodigo() == lancheId);
     }
-    public void atualizar(int lanche_id, Lanche lanche){
-        Lanche lancheInMemory = this.buscarPorCodigo(lanche_id);
+    public void atualizar(int lancheId, Lanche lanche){
+        Lanche lancheInMemory = this.buscarPorCodigo(lancheId);
         lancheInMemory.setNome(lanche.getNome());
         lancheInMemory.setPreco(lanche.getPreco());
         lancheInMemory.setImagem(lanche.getImagem());

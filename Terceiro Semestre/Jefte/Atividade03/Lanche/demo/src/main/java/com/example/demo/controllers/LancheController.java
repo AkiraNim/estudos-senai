@@ -25,23 +25,23 @@ public class LancheController {
     }
 
     @GetMapping("/{codigo}")
-    public Lanche getLanche(@PathVariable int codigo){
-        return lancheFacade.buscarPorCodigo(codigo);
+    public Lanche getLanche(@PathVariable int lancheId){
+        return lancheFacade.buscarPorCodigo(lancheId);
     }
     @PostMapping("")
     public void cadastrar(@RequestBody Lanche lanche){
         lancheFacade.cadastrar(lanche, destino);
     }
     @PutMapping("/{codigo}")
-    public void atualizar(@PathVariable int codigo, @RequestBody Lanche lanche){
-        lancheFacade.atualizar(codigo, lanche, destino);
+    public void atualizar(@PathVariable int lancheId, @RequestBody Lanche lanche){
+        lancheFacade.atualizar(lancheId, lanche, destino);
     }
     @DeleteMapping("/{codigo}")
-    public void deletar(@PathVariable int codigo, @RequestBody Lanche lanche){
-        lancheFacade.remover(codigo, lanche, destino);
+    public void deletar(@PathVariable int lancheId){
+        lancheFacade.remover(lancheId, destino);
     }
     @GetMapping("/comprar/{codigo}/{quantidade}")
-    public double comprar(@PathVariable int codigo, @PathVariable int quantidade){
-        return lancheFacade.calcularLanche(lancheFacade.buscarPorCodigo(codigo), quantidade);
+    public double comprar(@PathVariable int lancheId, @PathVariable int quantidade){
+        return lancheFacade.calcularLanche(lancheFacade.buscarPorCodigo(lancheId), quantidade);
     }
 }
