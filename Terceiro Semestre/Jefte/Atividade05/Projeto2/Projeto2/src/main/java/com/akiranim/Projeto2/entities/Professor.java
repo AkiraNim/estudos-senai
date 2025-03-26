@@ -1,10 +1,7 @@
 package com.akiranim.Projeto2.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +24,13 @@ public class Professor {
     @Column(name = "idade")
     private int idade;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "detalhe_professor_id_fk", referencedColumnName = "id")
     private DetalheProfessor detalheProfessor;
 
-    @OneToMany(mappedBy = "professor",cascade = CascadeType.ALL)
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
+    @OneToMany(mappedBy = "professor",cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Curso> cursos = new ArrayList<>();
 
 

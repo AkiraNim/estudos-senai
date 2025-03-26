@@ -23,11 +23,11 @@ public class Curso {
     @Column(name = "nome")
     private String nome;
 
-    @OneToMany(mappedBy = "curso", cascade = CascadeType.ALL)
-    private List<CursoEstudante> cursoEstudantes;
-
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "professor_id_fk", referencedColumnName = "id")
     private Professor professor;
-
+    
+    @OneToMany(mappedBy = "curso", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private List<CursoEstudante> cursoEstudante;
+    
 }

@@ -1,5 +1,6 @@
 package com.akiranim.Projeto2.controllers;
 
+import com.akiranim.Projeto2.entities.DetalheProfessor;
 import com.akiranim.Projeto2.entities.Professor;
 import com.akiranim.Projeto2.jpa.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
