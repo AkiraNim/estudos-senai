@@ -17,16 +17,16 @@
 #define USER_PASSWORD "32654988"
 
 
-#define ledPin = 4;
-
 // Define Firebase Data object
-FirebaseData fbdoLed;
+FirebaseData fbdo;
 
 FirebaseAuth auth;
 FirebaseConfig config;
 
 unsigned long sendDataPrevMillis = 0;
 const int DHT_PIN = 5;
+
+const int ledPin = 4;
 
 DHTesp dhtSensor;
 
@@ -38,7 +38,6 @@ void setup()
   pinMode(ledPin, OUTPUT);
   digitalWrite(ledPin, LOW);
 
-  Serial.begin(115200);
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
 
   Serial.print("Connecting to Wi-Fi");
@@ -91,20 +90,20 @@ void loop()
     if (Firebase.RTDB.setFloat(&fbdo, "/Var/temperatura", data.temperature)) {
       Serial.println("Temperatura enviada para o Firebase: " + String(data.temperature, 2) + "°C");
    }else{
-      Serial.println("Erro ao enviar temperatura: " + fbdo.errorReason().c_str());
+      Serial.println("Erro ao enviar temperatura: ");
    }
 
     if (Firebase.RTDB.setFloat(&fbdo, "/Var/humidade", data.humidity)) {
       Serial.println("Umidade enviada para o Firebase: " + String(data.humidity, 1) + "%");
   } else {
-      Serial.println("Erro ao enviar umidade: " + fbdo.errorReason().c_str());
+      Serial.println("Erro ao enviar umidade: ");
   }
 
   int ledState;
    if(Firebase.RTDB.getInt(&fbdo, "/Led/state", &ledState)){
     digitalWrite(ledPin, ledState);
    }else{
-    Serial.println(fbdo.errorReason().c_str());
+    Serial.println("Error");
    }
   }
   delay(2000);
