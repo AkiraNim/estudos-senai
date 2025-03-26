@@ -24,7 +24,4 @@ public class DetalheProfessor {
     @Column(name = "linkedin")
     private String linkedin;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "professor_fk", referencedColumnName = "id")
-    private Professor professor;
 }

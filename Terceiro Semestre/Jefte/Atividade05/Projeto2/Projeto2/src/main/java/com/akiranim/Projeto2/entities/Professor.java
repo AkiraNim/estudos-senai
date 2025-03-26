@@ -28,7 +28,7 @@ public class Professor {
     private int idade;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "detalhe_professor_fk", referencedColumnName = "id")
+    @JoinColumn(name = "detalhe_professor_id_fk", referencedColumnName = "id")
     private DetalheProfessor detalheProfessor;
 
     @OneToMany(mappedBy = "professor",cascade = CascadeType.ALL)

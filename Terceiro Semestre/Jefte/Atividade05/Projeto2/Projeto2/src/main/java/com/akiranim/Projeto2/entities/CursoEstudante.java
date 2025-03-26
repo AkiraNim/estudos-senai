@@ -1,8 +1,16 @@
 package com.akiranim.Projeto2.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class CursoEstudante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -10,10 +18,10 @@ public class CursoEstudante {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "curso_fk", referencedColumnName = "id")
+    @JoinColumn(name = "curso_id_fk", referencedColumnName = "id")
     private Curso curso;
 
     @ManyToOne
-    @JoinColumn(name = "estudante_fk", referencedColumnName = "id")
+    @JoinColumn(name = "estudante_id_fk", referencedColumnName = "id")
     private Estudante estudante;
 }

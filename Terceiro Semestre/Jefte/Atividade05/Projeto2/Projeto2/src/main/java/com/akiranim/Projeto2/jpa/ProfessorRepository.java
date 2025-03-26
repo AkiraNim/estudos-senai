@@ -1,4 +1,7 @@
 package com.akiranim.Projeto2.jpa;
 
-public interface ProfessorRepository {
+import com.akiranim.Projeto2.entities.Professor;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProfessorRepository extends JpaRepository<Professor, Integer> {
 }
