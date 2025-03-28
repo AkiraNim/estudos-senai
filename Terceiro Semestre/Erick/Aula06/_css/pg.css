@@ -9,3 +9,69 @@
 .logo{
     width:160px;
 }
+
+nav{
+    background: rgb(246,246,246);
+    background: linear-gradient(90deg, rgba(246,246,246,1) 0%, rgba(56,9,121,1) 91%, rgba(165,100,255,1) 100%);
+    box-shadow: 2px 2px 2px 2px #cdcdcd;
+}
+
+#navbarNav ul li a{
+    color: #fff;
+    font-weight: bold;
+}
+
+#navbarNav ul li a:hover{
+      color: #000;
+      font-size: 20px;
+}
+
+.imgBanner{
+    height: 550px;
+}
+
+#blocos{
+    margin-bottom: 10px;
+}
+
+.main-title{
+    color: #000;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.destaque-texto{
+    color: #3498db;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.destaque{
+    font-size: 16px;
+    color: #000;
+    padding: 15px;
+    padding-top: 10px;
+}
+
+.icones{
+    color: #3498db;
+    font-size: 40px;
+    padding-bottom: 10px;
+}
+
+#contato{
+    margin-bottom: 100px;
+}
+
+footer{
+    background: rgb(246,246,246);
+    background: linear-gradient(90deg, rgba(246,246,246,1) 0%, rgba(56,9,121,1) 91%, rgba(165,100,255,1) 100%);
+}
+
+.logo_footer{
+    height: 120px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
