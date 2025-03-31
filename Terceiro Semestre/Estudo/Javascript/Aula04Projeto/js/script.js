@@ -1,7 +1,24 @@
-let dolar = 5.1;
+let dolar;
 
 let usdInput = document.querySelector("#usd");
 let brlInput = document.querySelector("#brl");
+
+
+async function buscarDolar() {
+    const url = "https://economia.awesomeapi.com.br/json/last/USD-BRL";
+    const response = await fetch(url);
+    const data = await response.json();
+    
+    dolar = data.USDBRL.high; // Atualiza a variável global
+    console.log(dolar);
+    return dolar;
+}
+
+dolar = buscarDolar();
+
+
+
+
 
 usdInput.addEventListener("keyup", () => {
     convert("usd-to-brl");
