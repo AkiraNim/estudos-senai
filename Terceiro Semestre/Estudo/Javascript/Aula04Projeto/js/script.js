@@ -25,7 +25,6 @@ async function iniciarConversor() {
 
 iniciarConversor(); // Inicia o conversor
 usdInput.value = 1;
-convert("usd-to-brl");
 
 usdInput.addEventListener("keyup", () => {
     convert("usd-to-brl");
