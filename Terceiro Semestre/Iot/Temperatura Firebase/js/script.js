@@ -42,7 +42,7 @@ const firebaseConfig = {
       toggleSwitch.checked = true;
       chibi.style.display = "flex";
       chibiSad.style.display = "none";  // Marca o checkbox se o LED estiver ligado
-    } else {
+    } else{
       toggleSwitch.checked = false;
       chibi.style.display = "none";
       chibiSad.style.display = "flex"; // Desmarca o checkbox se o LED estiver desligado
