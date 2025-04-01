@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Monitoramento da Granja</title>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/pg.css">
+  <link rel="stylesheet" href="css/button.css">
+</head>
+<body>
+  <h1>Monitoramento da Granja</h1>
+  
+  <div class="card">
+
+    <p>Temperatura: <span id="temp">--</span> °C</p>
+    <i class="fa-solid fa-temperature-high icones"></i>
+    <p>Umidade: <span id="umid">--</span> %</p>
+    <i class="fa-solid fa-droplet icones"></i>
+    <i id="statusLed"></i>
+  </div>
+
+  <div class="switch-container botao" id="toggleSwitch">
+    <input class="toggle-checkbox" id="toggle-switch" type="checkbox" />
+    <label class="switch" for="toggle-switch">
+      <div class="toggle">
+        <div class="led"></div>
+      </div>
+    </label>
+  </div>
+
+  <img src="imgs/chibi.gif" id="chibi">
+  <img src="imgs/chibi_sad.gif" id = "chibiSad">
+
+  <script src="js/script.js"></script>
+</body>
+</html>
