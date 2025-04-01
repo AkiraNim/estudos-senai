@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Monitoramento da Granja</title>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
+    body {
+
+    padding: 30px;
+    text-align: center;
+    align-items: center;
+    background: rgb(173,173,173);
+    background: linear-gradient(90deg, rgba(173,173,173,1) 0%, rgba(0,18,255,1) 100%);
+    }
+    .card {
+    background: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    }
+    .status-led {
+    display: none;
+    }
+    .vermelho { background-color: #e74c3c; }
+    .amarelo { background-color: #f1c40f; color: #000; }
+    .verde { background-color: #2ecc71; }
+
+    .botao {
+    display: flex;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    }
+    .icones{
+    color: #3498db;
+    font-size: 40px;
+    padding-bottom: 10px;
+    }
+    h1{
+    font-family: "Jersey 15", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+    p{
+    font-family: "Jersey 15", sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    font-style: normal;
+    }
+
+    #chibi{
+    width: 40%;
+    }
+    #chibiSad{
+    width: 40%;
+    padding-top: 70px;
+    }
+
+    /* From Uiverse.io by chase2k25 */ 
+    /* Switch Container */
+    .switch-container {
+        position: relative;
+        width: 150px;
+        height: 60px;
+        background: #d6d6d6;
+        border-radius: 50px;
+        box-shadow:
+        inset -8px -8px 16px #ffffff,
+        inset 8px 8px 16px #b0b0b0;
+    }
+    .body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        padding: 30px;
+        text-align: center;
+        display: flex;                /* Flexbox para centralizar */
+        justify-content: center;      /* Alinha o conteúdo horizontalmente no centro */
+        align-items: center;          /* Alinha o conteúdo verticalmente no centro */
+        height: 100vh;                /* Faz o body ocupar toda a altura da tela */
+        margin: 0;                    /* Remove margens padrão do body */
+    }
+    
+    /* Hidden Checkbox */
+    .toggle-checkbox {
+        display: none;
+    }
+    
+    /* Switch Label (Interactive Area) */
+    .switch {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: translateY(-50%);
+        border-radius: 50px;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    
+    /* Toggle Button */
+    .toggle {
+        position: absolute;
+        width: 80px;
+        height: 50px;
+        background: linear-gradient(145deg, #d9d9d9, #bfbfbf);
+        border-radius: 50px;
+        top: 5px;
+        left: 5px;
+        box-shadow:
+        -4px -4px 8px #ffffff,
+        4px 4px 8px #b0b0b0;
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 10px;
+    }
+    
+    /* LED Light */
+    .led {
+        width: 10px;
+        height: 10px;
+        background: grey;
+        border-radius: 50%;
+        box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease-in-out;
+    }
+    
+    /* Active State for Toggle (ON) */
+    .toggle-checkbox:checked + .switch .toggle {
+        left: 65px;
+        background: linear-gradient(145deg, #cfcfcf, #a9a9a9);
+        box-shadow:
+        -4px -4px 8px #ffffff,
+        4px 4px 8px #8a8a8a;
+    }
+    
+    .toggle-checkbox:checked + .switch .led {
+        background: yellow;
+        box-shadow: 0 0 15px 4px yellow;
+    }
+    
+    /* Hover Effect */
+    .switch:hover .toggle {
+        box-shadow:
+        -4px -4px 12px #ffffff,
+        4px 4px 12px #9b9b9b;
+    }
+  
+</style>
+
+</head>
+<body>
+  <h1>Monitoramento da Granja</h1>
+  
+  <div class="card">
+
+    <p>Temperatura: <span id="temp">--</span> °C</p>
+    <i class="fa-solid fa-temperature-high icones"></i>
+    <p>Umidade: <span id="umid">--</span> %</p>
+    <i class="fa-solid fa-droplet icones"></i>
+    <i id="statusLed"></i>
+  </div>
+
+  <div class="switch-container botao" id="toggleSwitch">
+    <input class="toggle-checkbox" id="toggle-switch" type="checkbox" />
+    <label class="switch" for="toggle-switch">
+      <div class="toggle">
+        <div class="led"></div>
+      </div>
+    </label>
+  </div>
+
+  <img src="https://i.gifer.com/origin/38/38e41eb81a16b877dbb3128438b457c4.gif" id="chibi">
+  <img src="https://media.tenor.com/aySvKBn5tAgAAAAM/anime.gif" id = "chibiSad">
+
+  <script>
+    // Configuração do Firebase (substitua com os seus dados!)
+const firebaseConfig = {
+    apiKey: "AIzaSyBrnqehQ_h9MbIcYlDHK4BHbyvgztQZRqs",
+    authDomain: "iot-senai-esp32.firebaseapp.com",
+    databaseURL: "https://iot-senai-esp32-default-rtdb.firebaseio.com",
+    projectId: "iot-senai-esp32",
+    storageBucket: "iot-senai-esp32.firebasestorage.app",
+    messagingSenderId: "654364028381",
+    appId: "1:654364028381:web:9c9307162ba9852422da34"
+  };
+
+  // Inicializa o Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+
+  // Referência para os dados no Realtime Database
+  const tempRef = database.ref("/status/temperature");
+  const umidRef = database.ref("/status/humidity");
+  const statusRef = database.ref("/status/led");
+  const chibi = document.getElementById("chibi");
+  const chibiSad = document.getElementById("chibiSad");
+
+  // Atualiza os dados na tela em tempo real
+  tempRef.on("value", snapshot => {
+    document.getElementById("temp").textContent = snapshot.val().toFixed(1);
+  });
+
+  umidRef.on("value", snapshot => {
+    document.getElementById("umid").textContent = snapshot.val().toFixed(1);
+  });
+
+  statusRef.on("value", snapshot => {
+    const status = snapshot.val();
+    const statusSpan = document.getElementById("statusLed");
+    statusSpan.textContent = status;
+    statusSpan.className = "status-led " + status;
+  
+    // Muda o estado do checkbox de acordo com o valor do statusLED
+    const toggleSwitch = document.getElementById("toggle-switch");
+    
+    if (status === true) {
+      toggleSwitch.checked = true;
+      chibi.style.display = "flex";
+      chibiSad.style.display = "none";  // Marca o checkbox se o LED estiver ligado
+    } else{
+      toggleSwitch.checked = false;
+      chibi.style.display = "none";
+      chibiSad.style.display = "flex"; // Desmarca o checkbox se o LED estiver desligado
+    }
+  });
+
+  document.getElementById("toggle-switch").addEventListener("change", (event) => {
+    const status = event.target.checked; // Se o checkbox estiver marcado, será true (LED ligado); caso contrário, false (LED desligado)
+  
+    // Envia o status para o Firebase
+    statusRef.set(status); // Atualiza o valor do statusLED no Firebase (true ou false)
+  });
+
+  </script>
+</body>
+</html>
