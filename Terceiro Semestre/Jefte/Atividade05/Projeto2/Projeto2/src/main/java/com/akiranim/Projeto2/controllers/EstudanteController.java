@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/estudande/")
+@RequestMapping("api/estudante/")
 public class EstudanteController {
     private final EstudanteRepository estudanteRepository;
 
@@ -37,8 +37,8 @@ public class EstudanteController {
         this.estudanteRepository.deleteById(id);
     }
 
-    @PutMapping("{id}")
-    public Estudante getById(@PathVariable int id, @RequestBody Estudante estudante) {
+    @PutMapping
+    public Estudante getById(@RequestBody Estudante estudante) {
         return this.estudanteRepository.save(estudante);
     }
 }

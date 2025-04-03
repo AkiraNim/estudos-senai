@@ -38,8 +38,8 @@ public class ProfessorController {
         this.professorRepository.deleteById(id);
     }
 
-    @PutMapping("{id}")
-    public Professor getById(@PathVariable int id, @RequestBody Professor professor) {
+    @PutMapping
+    public Professor getById(@RequestBody Professor professor) {
         return this.professorRepository.save(professor);
     }
 }

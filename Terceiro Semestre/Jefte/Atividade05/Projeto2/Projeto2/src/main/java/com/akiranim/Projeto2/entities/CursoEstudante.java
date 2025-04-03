@@ -1,10 +1,7 @@
 package com.akiranim.Projeto2.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
@@ -17,11 +14,21 @@ public class CursoEstudante {
     @Column(name = "id")
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "curso_id_fk", referencedColumnName = "id")
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "curso_id_fk", referencedColumnName = "id", insertable = false, updatable = false)
     private Curso curso;
 
-    @ManyToOne
-    @JoinColumn(name = "estudante_id_fk", referencedColumnName = "id")
+    @Getter(AccessLevel.NONE)
+    @Setter(AccessLevel.NONE)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "estudante_id_fk", referencedColumnName = "id", insertable = false, updatable = false)
     private Estudante estudante;
+
+    @Column(name = "estudante_id_fk")
+    private int estudanteId;
+
+    @Column(name = "curso_id_fk")
+    private int cursoId;
 }

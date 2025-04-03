@@ -33,8 +33,6 @@ public class CursoController {
 
     @PostMapping("")
     public Curso save(@RequestBody Curso curso) {
-        Professor professor = this.professorRepository.findById(curso.getProfessor().getId()).get();
-        curso.setProfessor(professor);
         return this.cursoRepository.save(curso);
     }
 
@@ -43,8 +41,8 @@ public class CursoController {
         this.cursoRepository.deleteById(id);
     }
 
-    @PutMapping("{id}")
-    public Curso getById(@PathVariable int id, @RequestBody Curso curso) {
+    @PutMapping
+    public Curso getById(@RequestBody Curso curso) {
         return this.cursoRepository.save(curso);
     }
 }
