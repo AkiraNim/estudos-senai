@@ -12,26 +12,30 @@
 <body>
   <h1>Monitoramento da Granja</h1>
   
-  <div class="card">
+  <div class="principal">
+    <div class="card">
+      <p>Temperatura: <span id="temp">--</span> °C</p>
+      <i class="fa-solid fa-temperature-high icones"></i>
+      <p>Umidade: <span id="umid">--</span> %</p>
+      <i class="fa-solid fa-droplet icones"></i>
+      <i id="statusLed"></i>
+    </div>
+  
+    <div class="switch-container botao" id="toggleSwitch">
+      <input class="toggle-checkbox" id="toggle-switch" type="checkbox" />
+      <label class="switch" for="toggle-switch">
+        <div class="toggle">
+          <div class="led"></div>
+        </div>
+      </label>
+    </div>
 
-    <p>Temperatura: <span id="temp">--</span> °C</p>
-    <i class="fa-solid fa-temperature-high icones"></i>
-    <p>Umidade: <span id="umid">--</span> %</p>
-    <i class="fa-solid fa-droplet icones"></i>
-    <i id="statusLed"></i>
+    <img src="https://i.gifer.com/origin/38/38e41eb81a16b877dbb3128438b457c4.gif" id="chibi">
+    <img src="https://media.tenor.com/aySvKBn5tAgAAAAM/anime.gif" id = "chibiSad">
   </div>
+  
 
-  <div class="switch-container botao" id="toggleSwitch">
-    <input class="toggle-checkbox" id="toggle-switch" type="checkbox" />
-    <label class="switch" for="toggle-switch">
-      <div class="toggle">
-        <div class="led"></div>
-      </div>
-    </label>
-  </div>
-
-  <img src="https://i.gifer.com/origin/38/38e41eb81a16b877dbb3128438b457c4.gif" id="chibi">
-  <img src="https://media.tenor.com/aySvKBn5tAgAAAAM/anime.gif" id = "chibiSad">
+  
 
   <script src="js/script.js"></script>
 </body>
