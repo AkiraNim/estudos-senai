@@ -90,3 +90,7 @@ h2{
 #multiplication-operations .result{
     margin-left: 0.4rem;
 }
+
+#multiplication-operations .row:last-child{
+    border-bottom: 1px solid #ccc;
+}
