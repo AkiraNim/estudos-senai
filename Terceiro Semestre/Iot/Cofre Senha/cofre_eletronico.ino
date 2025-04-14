@@ -60,7 +60,7 @@ void loop() {
       if (cofreAberto && tecla == 'A') {
         senhaCadastrada = false;
         cofreAberto = false;
-        servoMotor.write(0); // Fecha o cofre antes de cadastrar nova senha
+        servoMotor.write(0);
         digitalWrite(LED_VERDE, LOW);
         digitalWrite(LED_VERMELHO, LOW);
         cadastrarSenha();
@@ -74,10 +74,10 @@ void loop() {
         lcd.setCursor(0, 0);
         lcd.print("Digite a senha:");
       } 
-      else {
+      else if (isDigit(tecla) && senhaDigitada.length() < 8) {
         senhaDigitada += tecla;
         lcd.setCursor(0, 1);
-        lcd.print(senhaDigitada);
+        lcd.print(repetirChar('*', senhaDigitada.length()));
       }
 
       if (cofreAberto && tecla == 'B') {
@@ -94,26 +94,40 @@ void cadastrarSenha() {
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Nova senha:");
+  lcd.setCursor(0, 1);
+  lcd.print("(Ate 8 dig, #)");
+  delay(2000);
+  lcd.setCursor(0, 1);
+  lcd.print("                ");
 
-  while (senha1.length() < 8) {
+  while (true) {
     char t = teclado.getKey();
-    if (t) {
+    if (t && isDigit(t) && senha1.length() < 8) {
       senha1 += t;
       lcd.setCursor(0, 1);
-      lcd.print(senha1);
+      lcd.print(repetirChar('*', senha1.length()));
+    } else if (t == '#' && senha1.length() > 0) {
+      break;
     }
   }
 
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("Repita a senha:");
+  lcd.print("Repita senha:");
+  lcd.setCursor(0, 1);
+  lcd.print("(Ate 8 dig, #)");
+  delay(2000);
+  lcd.setCursor(0, 1);
+  lcd.print("                ");
 
-  while (senha2.length() < 8) {
+  while (true) {
     char t = teclado.getKey();
-    if (t) {
+    if (t && isDigit(t) && senha2.length() < 8) {
       senha2 += t;
       lcd.setCursor(0, 1);
-      lcd.print(senha2);
+      lcd.print(repetirChar('*', senha2.length()));
+    } else if (t == '#' && senha2.length() > 0) {
+      break;
     }
   }
 
@@ -183,4 +197,12 @@ void fecharCofre() {
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("Digite a senha:");
+}
+
+String repetirChar(char c, int vezes) {
+  String resultado = "";
+  for (int i = 0; i < vezes; i++) {
+    resultado += c;
+  }
+  return resultado;
 }
